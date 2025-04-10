@@ -4,7 +4,7 @@ __author__ = "730747262"
 
 
 def invert(a: dict[str, str]) -> dict[str, str]:
-    new_dict = {}
+    new_dict: dict[str, str] = {}
     used_values = set()
 
     for key in a:
@@ -21,7 +21,7 @@ def invert(a: dict[str, str]) -> dict[str, str]:
 
 
 def count(b: list[str]) -> dict[str, int]:
-    new_dict = {}
+    new_dict: dict[str, int] = {}
     """making a new dictionary and counting how many times an item is seen in a list"""
     for item in b:
         """because you labeled the elements of the list "item"  it refers the list"""
@@ -54,17 +54,17 @@ def favorite_color(c: dict[str, str]) -> str:
     return fav_color
 
 
-def bin_len(d: list) -> dict[int, str]:
+def bin_len(d: list[str]) -> dict[int, set[str]]:
     """this function records lengths of each word in a list and make those keys"""
     """then as the value it makes a set of the words that are those lengths """
-    new_dict = {}
+    new_dict: dict[int, set[str]] = {}
 
     for item in d:
         length = len(item)
 
-        if item not in new_dict:
-            new_dict[length] = set()
-
-        new_dict[length].add(item)
+        if length in new_dict:
+            new_dict[length].add(item)
+        else:
+            new_dict[length] = {item}
 
     return new_dict

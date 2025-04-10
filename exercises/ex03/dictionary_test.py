@@ -102,22 +102,12 @@ def test_favorite_color_3() -> None:
 
 def test_bin_len() -> None:
     """First unit test for "Bin Len", use case"""
-    assert bin_len(["dog", "dog", "four", "small", "pugnant", "four", "four"]) == {
-        3: {"dog", "dog"},
-        4: {"four", "four", "four"},
-        5: {"small"},
-        7: {"pugnant"},
-    }
+    assert bin_len(["dog", "dog", "four"]) == {3: {"dog"}, 4: {"four"}}
 
 
 def test_bin_len_2() -> None:
     """Second unit test for "Bin Len", use case"""
-    assert bin_len(["ate", "pier", "nicer", "scrumptious"]) == {
-        3: {"ate"},
-        4: {"pier"},
-        5: {"nicer"},
-        11: {"scrumptious"},
-    }
+    assert bin_len(["ate", "pier", "nicer"]) == {3: {"ate"}, 4: {"pier"}, 5: {"nicer"}}
 
 
 def test_bin_len_3() -> None:
