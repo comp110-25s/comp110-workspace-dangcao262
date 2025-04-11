@@ -9,5 +9,5 @@ class Fish:
         return None
 
     def one_day(self):
-        age += 1
+        self.age += 1
         return None

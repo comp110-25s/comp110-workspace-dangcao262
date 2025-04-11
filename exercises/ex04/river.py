@@ -21,18 +21,46 @@ class River:
             self.bears.append(Bear())
 
     def check_ages(self):
+        fish_left: list = []
+        bears_left: list = []
+        for fish in self.fish:
+            if fish.age <= 3:
+                fish_left.append(fish)
+        self.fish = fish_left
+        for bear in self.bears:
+            if bear.age <= 5:
+                bears_left.append(bear)
+        self.bears = bears_left
+        return None
+
+    def remove_fish(self, amount: int):
+        for i in range(amount):
+            self.fish.pop(0)
         return None
 
     def bears_eating(self):
+        if len(self.fish) <= 5:
+            self.remove_fish(3)
         return None
 
     def check_hunger(self):
+        bears_starve: list = []
+        for bear in self.bears:
+            if bear.hunger_score > 0:
+                bears_starve.append(bear)
+        self.bears = bears_starve
         return None
 
     def repopulate_fish(self):
+        add_fish = len(self.fish) // 2 * 4
+        for fish in range(add_fish):
+            self.fish.append(Fish())
         return None
 
     def repopulate_bears(self):
+        add_bears = len(self.bears) // 2
+        for bear in range(add_bears):
+            self.bears.append(Bear())
         return None
 
     def view_river(self):
